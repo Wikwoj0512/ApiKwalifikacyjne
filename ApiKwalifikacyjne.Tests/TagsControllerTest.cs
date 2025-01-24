@@ -45,6 +45,7 @@ public class TagsControllerTest : IClassFixture<CustomWebApplicationFactory<Prog
             await db.Database.EnsureDeletedAsync();
         }
     }
+
     [Fact]
     public async Task GetTags_ParmsSortTags()
     {
@@ -64,13 +65,14 @@ public class TagsControllerTest : IClassFixture<CustomWebApplicationFactory<Prog
 
             var result = await response.Content.ReadFromJsonAsync<List<Tag>>();
 
-            Assert.Equivalent(result, Seed.GetTags().OrderBy(x=>x.Share));
+            Assert.Equivalent(result, Seed.GetTags().OrderBy(x => x.Share));
         }
         finally
         {
             await db.Database.EnsureDeletedAsync();
         }
     }
+
     [Fact]
     public async Task GetTags_ParmFilterOrder()
     {
@@ -90,7 +92,7 @@ public class TagsControllerTest : IClassFixture<CustomWebApplicationFactory<Prog
 
             var result = await response.Content.ReadFromJsonAsync<List<Tag>>();
 
-            Assert.Equivalent(result, Seed.GetTags().OrderByDescending(x=>x.Name));
+            Assert.Equivalent(result, Seed.GetTags().OrderByDescending(x => x.Name));
         }
         finally
         {

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Primitives;
 
 namespace ApiKwalifikacyjne.Services;
 
-public class DataService(IDbService dbService, ISoApiService apiService, ILogger logger): IDataService
+public class DataService(IDbService dbService, ISoApiService apiService, ILogger logger) : IDataService
 {
     public async Task FetchData()
     {
@@ -14,7 +14,7 @@ public class DataService(IDbService dbService, ISoApiService apiService, ILogger
         await dbService.Add(data);
         logger.LogInformation("Data saved");
     }
-    
+
 
     private readonly List<string> _validFields = new() { "name", "share" };
     private readonly List<string> _validOrder = new() { "asc", "desc" };

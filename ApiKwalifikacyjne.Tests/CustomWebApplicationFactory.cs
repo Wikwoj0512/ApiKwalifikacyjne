@@ -29,7 +29,6 @@ namespace ApiKwalifikacyjne.Tests
                 .Build();
 
             builder.UseConfiguration(configuration);
-            
         }
     }
 }

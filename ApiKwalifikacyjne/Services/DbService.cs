@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApiKwalifikacyjne;
 
-public class DbService: IDbService
+public class DbService : IDbService
 {
     private DataContext _context;
     private readonly ILogger _logger;
@@ -17,7 +17,7 @@ public class DbService: IDbService
         _context = dataContext;
         _logger = logger;
     }
-    
+
     private static Func<Tag, object> GetFieldDescriptor(string field)
     {
         return field switch
